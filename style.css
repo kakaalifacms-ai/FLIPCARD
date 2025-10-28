@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #eff4f6, #0A14F8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container untuk semua flip card */
+.flip-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* Container untuk satu flip card */
+.flip-card {
+    height: 300px;
+    perspective: 1000px;
+}
+
+/* Styling untuk sisi depan dan belakang */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Sisi depan */
+.flip-card-front {
+    background: #36FF59;
+    color: #e74c4c;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Sisi belakang */
+.flip-card-back {
+    background: #234E94;
+    color: rgb(165, 207, 171);
+    transform: rotateY(180deg);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Inner card (bagian yang berputar) */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+/* Efek saat di-hover */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
